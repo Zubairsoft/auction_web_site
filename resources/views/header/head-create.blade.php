@@ -7,7 +7,7 @@
     <title>إنشاء حساب  </title>
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
-    <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="{{asset('assets/css/register.css')}}">
     
 </head>
 <body>
