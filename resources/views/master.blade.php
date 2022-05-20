@@ -57,7 +57,7 @@
                 <div id="list-user" class="list-user">
                     
                         
-                        <a href=""><img src=" images/users/defaultImage.png" class="imguser"><div class="name-auth"> {{ Auth::user()->name }}</div> </a>
+                        <a href=""><img src=" images/users/defaultImage.png" class="profileuser"><div class="name-auth"> {{ Auth::user()->name }}</div> </a>
                     <a href="{{route('profile')}}"><i class="fas fa-user"></i> الملف الشخصي</a>
                     <a href="{{ route('add-auction') }}"><i class="fas fa-cog"></i>اضافة مزاد</a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

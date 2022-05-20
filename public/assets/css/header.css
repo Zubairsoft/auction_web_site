@@ -461,7 +461,7 @@ header {
     justify-content: center;
     justify-items: center;
     position: relative;
-    right: 70px;
+    right: 20px;
     margin: 10px;
 }
 
@@ -474,7 +474,7 @@ header {
     justify-content: center;
     justify-items: center;
     position: relative;
-    right: 70px;
+    right: 30px;
     margin: 10px;
     
 }
@@ -496,10 +496,10 @@ header {
   right: 50px;
 
 }
-.imguser{
+.profileuser{
     position: relative;
     right: 40px;
-   
+    
 }
 .logo {
     left: 0 !important;
