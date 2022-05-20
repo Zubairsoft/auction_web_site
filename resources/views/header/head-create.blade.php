@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>إنشاء حساب  </title>
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <link rel="stylesheet" href="{{asset('assets/css/register.css')}}">
+    <link href="fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="{{asset('assets/css/register.css')}}" rel="stylesheet">
     
 </head>
 <body>

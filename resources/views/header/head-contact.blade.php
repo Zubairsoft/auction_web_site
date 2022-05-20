@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>تواصل معنا </title>
-    <link rel="stylesheet" href="{{asset('assets/css/ionicons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/all.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/header.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
+    <link href="{{asset('assets/css/ionicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/all.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/header.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/home.css')}}" rel="stylesheet">
 </head>
 <body>
