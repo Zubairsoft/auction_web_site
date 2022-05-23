@@ -461,7 +461,26 @@ header {
     justify-content: center;
     justify-items: center;
     position: relative;
-    right: 70px;
+    right: 20px;
+    margin: 10px;
+}
+
+.register {
+    background: #ffc107;
+    width: 30%;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    position: relative;
+    right: 30px;
+    margin: 10px;
+    
+}
+.register a{
+    color: #fff !important;
+    font-size: 15px;
 }
 
 .login a {
@@ -477,16 +496,14 @@ header {
   right: 50px;
 
 }
-.imguser{
+.profileuser{
     position: relative;
     right: 40px;
-   
+    
 }
 .logo {
     left: 0 !important;
 }
-
-
 /*=========================================================
       13 -> RESPONSIVE
   ===========================================================*/

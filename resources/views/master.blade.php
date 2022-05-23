@@ -40,14 +40,16 @@
             <div class="header-icons">
                 {{-- <div class="show icon"><i class="fa fa-globe" aria-hidden="true"></i></div> --}}
                 <!-- <div class="show"> <a href="{{ route('login') }}"> <i class="fas fa-user"></i></a> </div> -->
+
                 @guest
                 @if (Route::has('login'))
 
-                <div class="show login"> <a href="{{ route('login') }}">تسجيل الدخول</a>
-
+                <div class="show register"> <a href=""> إنشاء حساب</a>
                 </div>
-
+                <div class="show login"> <a href="{{ route('login') }}">تسجيل الدخول</a>
+                </div>
             </div>
+
             @endif
             @else
 
@@ -56,9 +58,9 @@
             {{-- <i  class="show icon user" onclick="userSelection()" style="background: #eee"> <a href="#" style="color:var(--secondary)"> <i class="fas fa-user"></i></a>--}}
             <div class="show icon user" onclick="userSelection()" style="background-image: url('@isset(Auth::user()->profile->image) {{Auth::user()->profile->image}}@else images/users/defaultImage.png @endisset');background-size: cover;">
                 <div id="list-user" class="list-user">
-                    
-                        
-                        <a href=""><img src=" images/users/defaultImage.png" class="imguser"><div class="name-auth"> {{ Auth::user()->name }}</div> </a>
+
+
+                        <a href=""><img src=" images/users/defaultImage.png" class="profileuser"><div class="name-auth"> {{ Auth::user()->name }}</div> </a>
                     <a href="{{route('profile')}}"><i class="fas fa-user"></i> الملف الشخصي</a>
                     <a href="{{ route('add-auction') }}"><i class="fas fa-cog"></i>اضافة مزاد</a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -87,7 +89,7 @@
     </nav>
 
     </div>
-   
+
 
 </header>
 

@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="assets/css/ionicons.min.css">
-
- 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-         <link rel="stylesheet" href="assets/css/all.css">
-         <link rel="stylesheet" href="assets/css/style.css">
- 		<!-- Slick -->
- 		<link rel="stylesheet" href="assets/css/slick.css">
-         <link rel="stylesheet" href="assets/css/slick-theme.css">
-         <link rel="stylesheet" href="assets/css/details.css">
-         <link rel="stylesheet" href="assets/css/header.css">
-
-    <title>Document</title>
-</head>
-<body>
-
-
+    @extends('header.head')
     @extends('master')
     @section('content')
 
@@ -180,12 +158,4 @@
         </div>
 
     </div>
-        <script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/slick.min.js"></script>
-		<script src="assets/js/jquery.zoom.min.js"></script>
-		<script src="assets/js/app-main.js"></script>
-    @endsection
-
-</body>
-</html>
+    @extends('footer.footer')
