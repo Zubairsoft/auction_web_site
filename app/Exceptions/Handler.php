@@ -23,7 +23,7 @@ class Handler extends ExceptionHandler
                     break;
 
                 case '419':
-                    return \Response::view('error', array(), 404);
+                    return \Response::view('error', array(), 419);
                     break;
 
                     // internal error

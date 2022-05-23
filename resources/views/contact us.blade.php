@@ -1,4 +1,12 @@
-	@extends('header.head-contact')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>تواصل معنا </title>
+
+    @include('header.head-contact')
+</head>
+<body>
+
     @extends('master')
     @section('content')
     <div class="bg-contact100" style="background-image: url('assets/images/bg-01.jpg');">
@@ -42,6 +50,7 @@
 				</form>
 			</div>
 		</div>
-	</div> 
+	</div>
 @endsection
-@extends('footer.footer')
+</body>
+</html>

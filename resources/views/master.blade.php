@@ -16,39 +16,41 @@
                     <div class="menu-toggle">
                         <a href="{{ route('home') }}">
                             <i class="fas fa-times  close-menu-style"></i>
-
                         </a>
                     </div>
                     <li><a href="{{ route('index') }}">الرئيسة</a></li>
-                    <li><a href="{{ route('auction_review') }}">المزادات </a></li>
+                    <li><a href="{{ route('auctions')}}">المزادات </a></li>
                     <li><a href="#">الفئات</a></li>
                     <li><a href="{{  route('view_policies')}}">الاسئلة الشائعة</a></li>
                     <li><a href="{{  route('ContactUs')}}">تواصل معنا</a></li>
                     @guest
                     @if (Route::has('login'))
                     <li class="show-menu"><a href="{{ route('login') }}">تسجيل الدخول</a></li>
+                    <li class="show-menu"><a href="{{ route('register') }}"> انشاء حساب</a></li>
+
                     @endif
                     @endguest
                     {{-- <li class="show-menu"><a href="#"> اللغة</a></li> --}}
-                    <div>
 
-
-                    </div>
                 </ul>
                 <!-- /NAV -->
             </div>
             <div class="header-icons">
                 {{-- <div class="show icon"><i class="fa fa-globe" aria-hidden="true"></i></div> --}}
-                <!-- <div class="show"> <a href="{{ route('login') }}"> <i class="fas fa-user"></i></a> </div> -->
+                <!-- <div class="show"> <a href=""> <i class="fas fa-user"></i></a> </div> -->
 
                 @guest
                 @if (Route::has('login'))
 
-                <div class="show register"> <a href=""> إنشاء حساب</a>
+                <div class="show register"> <a href="{{ route('register') }}"> إنشاء حساب</a>
                 </div>
                 <div class="show login"> <a href="{{ route('login') }}">تسجيل الدخول</a>
                 </div>
             </div>
+
+
+
+
 
             @endif
             @else
@@ -56,24 +58,24 @@
 
 
             {{-- <i  class="show icon user" onclick="userSelection()" style="background: #eee"> <a href="#" style="color:var(--secondary)"> <i class="fas fa-user"></i></a>--}}
-            <div class="show icon user" onclick="userSelection()" style="background-image: url('@isset(Auth::user()->profile->image) {{Auth::user()->profile->image}}@else images/users/defaultImage.png @endisset');background-size: cover;">
+            <div class="show icon user" onclick="userSelection()" style="background-image: url('@isset(Auth::user()->profile->image) {{Auth::user()->profile->image}}@else /images/users/defaultImage.png @endisset');background-size: cover;">
                 <div id="list-user" class="list-user">
-
-
-                        <a href=""><img src=" images/users/defaultImage.png" class="profileuser"><div class="name-auth"> {{ Auth::user()->name }}</div> </a>
+                    <div class="profile-img-container" >
+                        <img src="@isset(Auth::user()->profile->image) {{Auth::user()->profile->image}}@else /images/users/defaultImage.png @endisset"  class="profile-img" alt="">
+                    </div>
+                    <div class="name-auth">{{ Auth::user()->name }}</div>
                     <a href="{{route('profile')}}"><i class="fas fa-user"></i> الملف الشخصي</a>
                     <a href="{{ route('add-auction') }}"><i class="fas fa-cog"></i>اضافة مزاد</a>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fas fa-sign-out"></i>تسجيل الخروج</a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out"></i>تسجيل الخروج</a>
+                    <form id="logout-form" action="{{route('logout')  }}" method="post" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
 
             @endguest
-        </div>
+
         {{-- <div class="show icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
         <div class="show icon"> <i class="fas fa-user"></i> </div> --}}
         <div class="menu-toggle">
@@ -84,9 +86,8 @@
         </div>
 
         <!-- /responsive-nav -->
-    </div>
+      </div>
     <!-- /container -->
-    </nav>
 
     </div>
 

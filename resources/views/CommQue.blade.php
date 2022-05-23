@@ -1,4 +1,12 @@
-  @extends('header.head-contact')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> سياسات الموقع </title>
+
+    @include('header.head-contact')
+</head>
+<body>
+
     @extends('master')
     @section('content')
     <!--Section: FAQ-->
@@ -24,4 +32,4 @@
 </section>
 <!--Section: FAQ-->
 @endsection
-@extends('footer.footer')
+@include('footer.footer')

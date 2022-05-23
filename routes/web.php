@@ -53,8 +53,6 @@ Route::get('Cart', [Cart::class, 'Cart'])->name('Cart');
 
 Route::get('/register', function () {
     return view('auth.register');
-
-
 })->name("register");
 Route::get('/reset', function () {
     return view('auth.reset');
@@ -142,6 +140,6 @@ Route::get('orders',function(){
 });
 
 Route::get('/user-auction/{userId}',[AuctionController::class,"userAuction"]);
-Route::get('/error',function(){
-    return view('error');
-});
+
+// show all acutions
+Route::get("/auctions",[AuctionController::class,"allAuctions"])->name("auctions");

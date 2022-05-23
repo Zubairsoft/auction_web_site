@@ -156,7 +156,7 @@ class AuctionController extends Controller
             $auctionInfo->damage = $request->damage;
             $auctionInfo->vehicle_type_id = $request->vehicle_type;
             $auctionInfo->name = $request->name;
-            $auctionInfo->model = $request->mdel;
+            $auctionInfo->model = $request->model;
             $auctionInfo->state = $request->state;
             $auctionInfo->engine_type = $request->engine_type;
             $auctionInfo->notes = $request->notes;
@@ -168,12 +168,9 @@ class AuctionController extends Controller
             $auctionInfo->fuel = $request->fuel;
             $auctionInfo->city_id = $request->address;
             $auctionInfo->date_of_end_auction = $request->date_of_end_auction;
-        } catch (\Throwable $error) {
 
-            return redirect()->back()->with(['error' => 'عذرا هناك خطا لم تتم اضافة البيانات']);
-        }
             // if the auction is saved that will save and upload images of auction.
-            try {
+
                 //code...
 
             if ($auctionInfo->save()) {
@@ -493,6 +490,21 @@ class AuctionController extends Controller
         } catch (\Throwable $error) {
             return back()->with(['error' => 'عذرا هناك خطا لم تتم اضافة البيانات']);
         }
+    }
+
+    public function allAuctions(){
+        $category = category::get();
+            $state = State::with("city")->get();
+            $vehicleType = VehicleType::get();
+            $auction = auction::with("auctionImage")->orderBy('created_at', 'desc')->get();
+
+
+            return view('auction')->with([
+                "auctions" => $auction,
+                'categories' => $category,
+                'vehicleTypes' => $vehicleType,
+                'states' => $state,
+            ]);
     }
 
     /**

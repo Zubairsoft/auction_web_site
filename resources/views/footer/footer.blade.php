@@ -9,6 +9,3 @@
     <script src="{{asset('/assets/js/vendor.min.js')}}"></script>
     <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
 
-</body>
-
-</html>

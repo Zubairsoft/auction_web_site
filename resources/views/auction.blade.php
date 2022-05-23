@@ -2,17 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>المزادات </title>
-    <link href="assets/css/search.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/all.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/home.css">
+    <title>المزادات المتوفؤة</title>
+    @include('header.head')
 </head>
 
 <body>
@@ -53,7 +44,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="s007 mt-3">
-                    <form method="post" action="{{route('auction')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('auctions')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="inner-form">
                             <div class="basic-search">
@@ -61,7 +52,7 @@
                                     <div class="icon-wrap">
                                         <img src="/assets/images/search.png" width="30">
                                     </div> <input id="search" type="text" placeholder="بحث..." />
-                                   
+
                                     <div class="result-count" onclick="myFunction()">
                                         <img src="/assets/images/Advanced_Search.png" width="30">بحث متقدم
                                     </div>
@@ -176,63 +167,77 @@
                 </div>
 
             </div>
-            <div class="row" id="ads">
-                <!-- Category Card -->
-
-
-                @isset($auctions)
-                @foreach($auctions as $auction)
-
-
-
-                <div class="col-md-4 my-3">
-                    <div class="card rounded">
-                        <div class="card-image">
-                            <span class="card-notify-year">@if($auction->state == 1) مستخدم @else جديد @endif
-                            </span>
-                            @foreach($auction->auctionImage as $image)
-                            @php
-                            $im = explode('_',$image->image);
-                            @endphp
-                            @if($im[1]=='main')
-                            <img class="img-fluid" src="{{$image->image}}" alt="" />
-                            @endif
-
-                            @endforeach
-                        </div>
-                        <div class="card-image-overlay m-auto">
-                            <span class="card-detail-badge">{{ $auction->model }}</span>
-                            <span class="card-detail-badge">{{ $auction->city->state->name }} - {{ $auction->city->name }}</span>
-                            <span class="card-detail-badge">{{ $auction->odometer }}km</span>
-                        </div>
-                        <div class="card-body text-center">
-                            <div class="ad-title m-auto">
-                                <h5>{{ $auction->name }}</h5>
-                                <h2>العطاء الحالي ${{ $auction->stare_price }}</h2>
-                                <h2>تاريخ انتهاء المزاد</h2>
-                                <h2 id=""> {{ $auction->date_of_end_auction }}</h2>
-
-                            </div>
-                            <a class="ad-btn" href="{{ route('action_detail',$auction->id)}}">مشاهدة التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                @endforeach
-                @endisset
-
-
-
-            </div>
         </div>
-        @endsection
+
+      <div class="row" id="ads">
+        <!-- Category Card -->
 
 
+        @if($auctions!=null)
+        @foreach($auctions as $auction)
+
+
+
+        <div class=" col-12  col-md-6  col-lg-4 my-3">
+          <div class="card rounded">
+            <div class="card-image">
+
+                @if($auction->state == 1)
+                <div class="card-notify-year" style="background-color:#6c76e4">
+
+{{ "مستخدم" }}
+                </div>
+                @else
+                <div class="card-notify-year" style="background-color:#ff4444">
+                    {{ "جديد" }}
+               </div>
+                @endif
+
+
+              @foreach($auction->auctionImage as $image)
+              @php
+              $im = explode('_',$image->image);
+              @endphp
+              @if($im[1]=='main')
+              <img class="img-fluid" src="{{$image->image}}" alt="" />
+              @endif
+
+              @endforeach
+            </div>
+            <div class="card-image-overlay m-auto">
+              <span class="card-detail-badge">{{ $auction->model }}</span>
+              <span class="card-detail-badge">{{ $auction->city->state->name }} - {{ $auction->city->name }}</span>
+              <span class="card-detail-badge">{{ $auction->odometer }}km</span>
+            </div>
+            <div class="card-body text-center">
+              <div class="ad-title m-auto">
+                <h5>{{ $auction->name }}</h5>
+                <h2>العطاء الحالي ${{ $auction->stare_price }}</h2>
+                <h2>تاريخ انتهاء المزاد</h2>
+                <h2 id=""> {{ $auction->date_of_end_auction }}</h2>
+
+              </div>
+              <a class="ad-btn" href="{{ route('action_detail',$auction->id)}}">مشاهدة التفاصيل</a>
+            </div>
+          </div>
+        </div>
+
+
+        @endforeach
+        @else
+        <h1>لاتوجد مزادات حالية</h1>
+        @endisset
+
+
+      </div>
+
+    </div>
+
+    @endsection
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
-<script src="assets/js/filter.js"></script>
 
 </html>
