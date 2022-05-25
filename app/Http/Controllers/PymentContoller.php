@@ -72,11 +72,18 @@ class PymentContoller extends Controller
      * 
      */
     public function dopayment(Request $request){
-      $auctionId = $request->auctionId;
-      $auction = auction::find( $auctionId);
-      $percentageFromStrartPrice = $auction->stare_price*0.2;
-      $payment = new PymentContoller();
-      return  $payment->makePyment($auction,$percentageFromStrartPrice);
+      try {
+        $auctionId = $request->auctionId;
+        $auction = auction::find( $auctionId);
+        $percentageFromStrartPrice = $auction->stare_price*0.2;
+        $payment = new PymentContoller();
+        return  $payment->makePyment($auction,$percentageFromStrartPrice);
+      } catch (\Throwable $th) {
+       
+        $error = 'هناك مشكلة في الانترنت ';
+        return view('error.error')->with($error);
+      }
+      
     }
 
     public function makePyment(auction $auction,$amountOfPayment){
@@ -127,7 +134,7 @@ class PymentContoller extends Controller
           curl_close($curl);
       
           if ($err) {
-            echo " Error #:" . $err;
+            return view('error.error');
           } else {
            $url = json_decode($response)->invoice->next_url;
            return redirect()->away($url);

@@ -14,7 +14,7 @@
 <body>
     <div class="container">
         <div class="error-msg">
-            <h3>😖 انتهت جلستك في الموقع </h3>
+            <h3>😖 {{$error}}</h3>
             <h4>للعودة الى صفحتك السابقة قم بتسجيل الدخول</h4>
 
             <a href="{{ route('login') }}" class="btn btn-primary text-white"> تسجيل الدخول</a>

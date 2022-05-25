@@ -1,15 +1,15 @@
-let search = document.getElementById('search')
-let closeSearch = document.getElementById('close')
-let showSearch = document.getElementById('header')
-let list_user = document.getElementById('list-user')
-search.addEventListener('click', (e) => {
-    e.preventDefault();
-    showSearch.style.display = 'block';
-})
-closeSearch.addEventListener('click', (e) => {
-    e.preventDefault();
-    showSearch.style.display = 'none';
-})
+// let search = document.getElementById('search')
+// let closeSearch = document.getElementById('close')
+// let showSearch = document.getElementById('header')
+// let list_user = document.getElementById('list-user')
+// search.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     showSearch.style.display = 'block';
+// })
+// closeSearch.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     showSearch.style.display = 'none';
+// })
 
 var prev = document.getElementsByClassName("prev");
 var next = document.getElementsByClassName("next");
@@ -100,39 +100,39 @@ function removeActive() {
 let ok_btn = document.getElementById("ok")
 let console_btn = document.getElementById("console")
 
-let amount = document.querySelector("[name='amount']")
-document.forms["amountForm"].onsubmit = function(e) {
-    let num_amount = amount.value;
+// let amount = document.querySelector("[name='amount']")
+// document.forms["amountForm"].onsubmit = function(e) {
+//     let num_amount = amount.value;
 
-    if (num_amount == "") {
-        e.preventDefault()
-        document.getElementById("msg").style.display = "block"
-        document.getElementById("validate-msg").innerHTML = "يرجئ ملئ الحقل للاشتراك في المزاد"
+//     if (num_amount == "") {
+//         e.preventDefault()
+//         document.getElementById("msg").style.display = "block"
+//         document.getElementById("validate-msg").innerHTML = "يرجئ ملئ الحقل للاشتراك في المزاد"
 
-    }
-    if (num_amount < 0) {
-        e.preventDefault()
-        document.getElementById("msg").style.display = "block"
-        document.getElementById("validate-msg").innerHTML = "يجب الا يكون الرقم المدخل رقم سالب"
+//     }
+//     if (num_amount < 0) {
+//         e.preventDefault()
+//         document.getElementById("msg").style.display = "block"
+//         document.getElementById("validate-msg").innerHTML = "يجب الا يكون الرقم المدخل رقم سالب"
 
-    }
-    if (!/^[0-9]+$/.test(num_amount)) {
-        e.preventDefault()
-        document.getElementById("msg").style.display = "block"
-        document.getElementById("validate-msg").innerHTML = "يجب ان يكون النص المدخل رقم"
+//     }
+//     if (!/^[0-9]+$/.test(num_amount)) {
+//         e.preventDefault()
+//         document.getElementById("msg").style.display = "block"
+//         document.getElementById("validate-msg").innerHTML = "يجب ان يكون النص المدخل رقم"
 
-    } else
-        document.getElementById("myModel").style.display = "block"
-    ok_btn.addEventListener(("click"), () => {
+//     } else
+//         document.getElementById("myModel").style.display = "block"
+//     ok_btn.addEventListener(("click"), () => {
 
-        submit = true
-        document.getElementById("myModel").style.display = "none";
+//         submit = true
+//         document.getElementById("myModel").style.display = "none";
 
-    })
-    console_btn.addEventListener(("click"), () => {
-        e.preventDefault()
-        document.getElementById("myModel").style.display = "none";
+//     })
+//     console_btn.addEventListener(("click"), () => {
+//         e.preventDefault()
+//         document.getElementById("myModel").style.display = "none";
 
-    })
+//     })
 
-}
+// }
